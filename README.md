@@ -29,22 +29,21 @@ It would be good and beneficial to you if you can actually solve the challenge, 
 Download / clone this repo
 
 ```
-git clone
+git clone https://github.com/albertsundjaja/pathfinding_challenge.git
 ```
 
 **NOTE** I will update the repo with the `train.csv` soon
-
 
 You will get a `train.csv`
 
 In this file, there are 3 columns `map`, `path` and `is_solveable`.
 
-the `map` and `path` is a 16x16 flattened matrix, while the `is_solveable` is a boolean indicating whether the map has a solution or not
+the `map` and `path` is a 10x10 flattened matrix, while the `is_solveable` is a boolean indicating whether the map has a solution or not
 
 example of the `map` data (unflattened into a matrix)
 
 ```
-# matrix
+# matrix (original map)
 array([[  1,   1,   1,   0,   1,   1,   1,   1,   1,   1],
        [  1,   0,   0,   1,   0, 200,   0,   1,   0,   0],
        [  1,   0,   1,   1,   1,   0,   1,   1,   1,   1],
@@ -55,8 +54,8 @@ array([[  1,   1,   1,   0,   1,   1,   1,   1,   1,   1],
        [  1,   0,   1,   0,   1,   0,   1,   0,   1,   1],
        [  0,   0,   1,   1,   1,   1,   0,   0,   1,   0],
        [  1,   0,   1,   0,   0,   1,   0,   1,   1,   0]])
-       
-# flattened
+
+# flattened (data in train.csv)
 array([  1,   1,   1,   0,   1,   1,   1,   1,   1,   1,   1,   0,   0,
          1,   0, 200,   0,   1,   0,   0,   1,   0,   1,   1,   1,   0,
          1,   1,   1,   1,   1,   1,   0,   1,   1,   1,   1,   1,   1,
@@ -65,6 +64,8 @@ array([  1,   1,   1,   0,   1,   1,   1,   1,   1,   1,   1,   0,   0,
          1,   0,   1,   1,   1,   1,   0,   1,   0,   1,   0,   1,   0,
          1,   1,   0,   0,   1,   1,   1,   1,   0,   0,   1,   0,   1,
          0,   1,   0,   0,   1,   0,   1,   1,   0])
+         
+# you can convert back to matrix using flattened.reshape(10,10)
 ```
 
 the cell with `100` is the starting point, while `200` is the destination point. `0` indicate obstacle (you can't pass through this path) and `1` indicate a road. You are allowed to move `up, down, left and right` only. It is assumed that the map is surrounded by walls, and as such you can't go outside the map.
