@@ -32,9 +32,15 @@ Download / clone this repo
 git clone https://github.com/albertsundjaja/pathfinding_challenge.git
 ```
 
-**NOTE** I will update the repo with the `train.csv` soon
+You will get a `train.pkl`
 
-You will get a `train.csv`
+```
+# .pkl is a pickle format, you can use pandas to load it
+
+import pandas as pd
+
+df = pd.read_pickle('train.pkl')
+```
 
 In this file, there are 3 columns `map`, `path` and `is_solveable`.
 
